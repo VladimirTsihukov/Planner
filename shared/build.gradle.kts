@@ -1,10 +1,12 @@
 plugins {
     alias(libs.plugins.multiplatform)
     alias(libs.plugins.compose)
+    alias(libs.plugins.android.library)
 }
 
 kotlin {
     jvm()
+    androidTarget()
 
     sourceSets {
         commonMain {
@@ -23,5 +25,15 @@ kotlin {
             }
         }
 
+    }
+}
+
+android {
+    namespace = "tishukov.app.shared.android.planner"
+    compileSdk = findProperty("android.compileSdk").toString().toInt()
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
