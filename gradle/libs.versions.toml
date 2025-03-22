@@ -1,7 +1,8 @@
 [versions]
-kotlin = "1.9.20"
-compose = "1.5.11"
-agp = "8.1.0"
+
+kotlin = "2.1.0"
+compose = "1.7.3"
+agp = "8.6.1"
 activity-compose = "1.9.3"
 
 [libraries]
@@ -12,5 +13,6 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 compose = { id = "org.jetbrains.compose", version.ref = "compose" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 
