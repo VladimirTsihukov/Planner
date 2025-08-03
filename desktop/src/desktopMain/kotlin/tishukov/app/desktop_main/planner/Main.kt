@@ -5,7 +5,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
-import com.tishukov.planner.SayHelloFromCompose
+import com.tishukov.planner.settings.compose.SettingsScreen
 
 fun main() {
     application {
@@ -15,7 +15,7 @@ fun main() {
             state = state,
             title = "Planner",
         ) {
-            SayHelloFromCompose()
+            SettingsScreen()
         }
     }
 }

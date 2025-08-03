@@ -6,7 +6,7 @@ plugins {
 }
 
 kotlin {
-    jvm()
+    jvm("desktop")
     androidTarget()
 
     listOf(
@@ -27,13 +27,16 @@ kotlin {
                 api(compose.runtime)
                 api(compose.ui)
                 api(compose.material)
+                api(libs.lifecycle.viewmodel.compose)
             }
         }
 
-        jvmMain {
+        val desktopMain by getting {
             dependencies {
                 //Необходимо чтобы Compose сам подтянул нужные библиотеи для разных платформ
                 api(compose.desktop.currentOs)
+                //необходим чтобы viewModelScope внутри ViewModel корректно работал в Compose Desktop (поддержка Dispatchers.Main).
+                api(libs.kotlinx.coroutines.swing)
             }
         }
     }

@@ -25,5 +25,7 @@ android {
 
 dependencies {
     implementation(libs.androidx.activity.compose)
+    implementation(libs.compose.tooling.preview)
+    implementation(libs.compose.tooling)
     implementation(project(":shared"))
 }

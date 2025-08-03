@@ -4,9 +4,18 @@ kotlin = "2.1.0"
 compose = "1.7.3"
 agp = "8.6.1"
 activity-compose = "1.9.3"
+coroutines = "1.8.0"
+lifecycle-viewmodel-compose = "2.8.4"
 
 [libraries]
+
+compose-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
+compose-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
+
+kotlinx-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "coroutines" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle-viewmodel-compose" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
