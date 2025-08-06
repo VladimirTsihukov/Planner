@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.tishukov.planner.common.ui.AppThemeProvider
 import com.tishukov.planner.settings.SettingsContract
 import com.tishukov.planner.settings.SettingsViewModel
 
@@ -44,7 +45,7 @@ fun SettingsContent(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(if (uiStateValue.isDarkTheme) Color.Black else Color.White)
+            .background(AppThemeProvider.colors.background)
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {

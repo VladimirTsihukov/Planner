@@ -3,7 +3,7 @@ package tishukov.app.android.planner
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.tishukov.planner.settings.compose.SettingsScreen
+import com.tishukov.planner.root.RootScreen
 
 class RootActivity : ComponentActivity() {
 
@@ -11,7 +11,7 @@ class RootActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            SettingsScreen()
+            RootScreen()
         }
     }
 }
