@@ -10,6 +10,7 @@ class RootContract {
     data class State(
         val isThemeDark: Boolean,
         val isFirstDayMonday: Boolean,
+        val selectedTab: AppTab,
     ) : BaseViewState {
 
         val appPrefs: AppPrefs
@@ -20,6 +21,7 @@ class RootContract {
                 return State(
                     isThemeDark = true,
                     isFirstDayMonday = true,
+                    selectedTab = AppTab.Events,
                 )
             }
         }
@@ -27,5 +29,7 @@ class RootContract {
 
     sealed class Event : BaseEvent
 
-    sealed class Action : BaseAction
+    sealed class Action : BaseAction {
+        data class SelectTab(val appTab: AppTab) : Action()
+    }
 }

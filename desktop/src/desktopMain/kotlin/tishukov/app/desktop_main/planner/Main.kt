@@ -5,7 +5,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
-import com.tishukov.planner.root.RootScreen
+import com.tishukov.planner.root.compose.RootScreen
 
 fun main() {
     application {

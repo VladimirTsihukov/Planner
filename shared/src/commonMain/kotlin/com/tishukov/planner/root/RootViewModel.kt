@@ -17,6 +17,11 @@ class RootViewModel : BaseViewModel<RootContract.Action, RootContract.State, Roo
     override fun initialState(): RootContract.State = RootContract.State.getDefault()
 
     override fun onAction(action: RootContract.Action) {
+        when (action) {
+            is RootContract.Action.SelectTab -> {
+                updateState { copy(selectedTab = action.appTab) }
+            }
+        }
     }
 
 }
