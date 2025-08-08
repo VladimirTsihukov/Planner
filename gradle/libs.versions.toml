@@ -6,6 +6,7 @@ agp = "8.6.1"
 activity-compose = "1.9.3"
 coroutines = "1.8.0"
 lifecycle-viewmodel-compose = "2.8.4"
+moko-res = "0.25.0"
 
 [libraries]
 
@@ -17,6 +18,10 @@ kotlinx-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle-viewmodel-compose" }
 
+moko-res = { module = "dev.icerock.moko:resources-generator", version.ref = "moko-res" }
+resources-core = { module = "dev.icerock.moko:resources", version.ref = "moko-res" }
+resources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "moko-res" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
@@ -24,4 +29,5 @@ compose = { id = "org.jetbrains.compose", version.ref = "compose" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+moko-res = { id = "dev.icerock.mobile.multiplatform-resources", version.ref = "moko-res" }
 

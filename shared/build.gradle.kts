@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.compose)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.android.library)
+    alias(libs.plugins.moko.res)
 }
 
 kotlin {
@@ -28,6 +29,8 @@ kotlin {
                 api(compose.ui)
                 api(compose.material)
                 api(libs.lifecycle.viewmodel.compose)
+                api(libs.resources.core)
+                api(libs.resources.compose)
             }
         }
 
@@ -49,6 +52,10 @@ kotlin {
             }
         }
     }
+}
+
+multiplatformResources {
+    resourcesPackage.set("info.javaway.planner")
 }
 
 android {

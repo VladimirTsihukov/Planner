@@ -9,7 +9,7 @@ import com.tishukov.planner.root.compose.RootScreen
 
 fun main() {
     application {
-        val state = rememberWindowState().apply { size = DpSize(200.dp, 200.dp) }
+        val state = rememberWindowState().apply { size = DpSize(600.dp, 400.dp) }
         Window(
             onCloseRequest = { exitApplication() },
             state = state,
