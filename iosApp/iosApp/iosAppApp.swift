@@ -1,14 +1,13 @@
-//
-//  iosAppApp.swift
-//  iosApp
-//
-//  Created by Vladimir Tishukov on 22.03.2025.
-//
-
+import shared
 import SwiftUI
 
 @main
 struct iosAppApp: App {
+
+    init() {
+        IosKoin.shared.initialize(userDefault: UserDefaults.standard)
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()

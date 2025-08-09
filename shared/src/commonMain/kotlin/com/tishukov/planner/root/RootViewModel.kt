@@ -6,10 +6,12 @@ import com.tishukov.planner.storage.SettingsManager
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
-class RootViewModel : BaseViewModel<RootContract.Action, RootContract.State, RootContract.Event>() {
+class RootViewModel(
+    private val settingsManager: SettingsManager,
+) : BaseViewModel<RootContract.Action, RootContract.State, RootContract.Event>() {
 
     init {
-        SettingsManager.themeIsDarkFlow.onEach { isDark ->
+        settingsManager.themeIsDarkFlow.onEach { isDark ->
             updateState { copy(isThemeDark = isDark) }
         }.launchIn(viewModelScope)
     }

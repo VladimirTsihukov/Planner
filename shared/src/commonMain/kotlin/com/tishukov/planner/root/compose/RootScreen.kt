@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.tishukov.planner.categories.CategoriesScreen
 import com.tishukov.planner.common.ui.AppTheme
 import com.tishukov.planner.common.ui.AppThemeProvider
@@ -16,12 +15,12 @@ import com.tishukov.planner.root.RootViewModel
 import com.tishukov.planner.root.models.AppTab
 import com.tishukov.planner.root.models.RootContract
 import com.tishukov.planner.settings.compose.SettingsScreen
+import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
-fun RootScreen(
-    viewModel: RootViewModel = viewModel { RootViewModel() },
-) {
+fun RootScreen() {
 
+    val viewModel: RootViewModel = koinViewModel()
     val uiStateValue = viewModel.uiState.collectAsState().value
 
     AppTheme(

@@ -7,14 +7,14 @@ import com.tishukov.planner.base.BaseViewState
 class SettingsContract {
     data class State(
         val isDarkTheme: Boolean,
-        val deviceInfo: DeviceInfo,
+        val info: DeviceInfo,
     ) : BaseViewState {
 
         companion object {
             fun getEmpty(): State {
                 return State(
                     isDarkTheme = false,
-                    deviceInfo = DeviceInfo(),
+                    info = DeviceInfo(),
                 )
             }
         }

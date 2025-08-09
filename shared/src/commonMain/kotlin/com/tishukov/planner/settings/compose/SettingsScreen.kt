@@ -18,16 +18,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.tishukov.planner.common.ui.AppThemeProvider
 import com.tishukov.planner.settings.SettingsContract
 import com.tishukov.planner.settings.SettingsViewModel
+import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
-fun SettingsScreen(
-    viewModel: SettingsViewModel = viewModel { SettingsViewModel() }
-) {
+fun SettingsScreen() {
 
+    val viewModel: SettingsViewModel = koinViewModel()
     val uiState = viewModel.uiState.collectAsState()
 
     SettingsContent(
@@ -52,7 +51,7 @@ fun SettingsContent(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
-            text = "Settings ${uiStateValue.deviceInfo.name} Screen",
+            text = "Settings ${uiStateValue.info.name} Screen",
             fontSize = 32.sp,
             color = Color.Red,
         )

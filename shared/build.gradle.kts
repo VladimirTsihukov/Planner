@@ -24,14 +24,24 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
+                //Compose
                 api(compose.foundation)
                 api(compose.runtime)
                 api(compose.ui)
                 api(compose.material)
                 api(libs.lifecycle.viewmodel.compose)
+
+                //Resources
                 api(libs.resources.compose)
                 api(libs.resources.core)
+
+                //Settings
                 api(libs.settings)
+
+                //DI
+                api(libs.koin.core)
+                api(libs.koin.compose)
+                api(libs.koin.compose.viewmodel)
             }
         }
 

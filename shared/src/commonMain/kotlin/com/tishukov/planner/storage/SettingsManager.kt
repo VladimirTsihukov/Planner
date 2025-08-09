@@ -1,13 +1,17 @@
 package com.tishukov.planner.storage
 
+import com.russhwolf.settings.Settings
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
-object SettingsManager {
-    private const val THEME_KEY = "theme_key"
+class SettingsManager(
+    private val settings: Settings,
+) {
 
-    private val settings = AppSettings().settings
+    companion object {
+        private const val THEME_KEY = "theme_key"
+    }
 
     var themeIsDark: Boolean
         set(value) {
