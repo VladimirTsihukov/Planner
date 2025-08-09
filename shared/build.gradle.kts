@@ -17,7 +17,7 @@ kotlin {
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
             baseName = "shared"
-            isStatic = true
+            isStatic = false
         }
     }
 
@@ -56,8 +56,10 @@ kotlin {
 }
 
 multiplatformResources {
-    resourcesPackage.set("info.javaway.planner")
+    resourcesPackage.set("com.tishukov.planner")
+    resourcesClassName.set("MR")
     iosBaseLocalizationRegion.set("en")
+    iosMinimalDeploymentTarget.set("11.0")
 }
 
 android {

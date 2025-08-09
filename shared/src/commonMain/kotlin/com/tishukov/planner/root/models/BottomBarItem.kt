@@ -1,8 +1,8 @@
 package com.tishukov.planner.root.models
 
 import dev.icerock.moko.resources.ImageResource
+import com.tishukov.planner.MR
 import dev.icerock.moko.resources.StringResource
-import info.javaway.planner.MR
 
 data class BottomBarItem(
     val title: StringResource,
