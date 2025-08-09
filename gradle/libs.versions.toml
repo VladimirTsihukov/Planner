@@ -7,6 +7,7 @@ activity-compose = "1.9.3"
 coroutines = "1.8.0"
 lifecycle-viewmodel-compose = "2.8.4"
 moko-res = "0.25.0"
+settings = "1.2.0"
 
 [libraries]
 
@@ -21,6 +22,8 @@ lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifec
 moko-res = { module = "dev.icerock.moko:resources-generator", version.ref = "moko-res" }
 resources-core = { module = "dev.icerock.moko:resources", version.ref = "moko-res" }
 resources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "moko-res" }
+
+settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "settings" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

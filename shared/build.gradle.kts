@@ -29,8 +29,9 @@ kotlin {
                 api(compose.ui)
                 api(compose.material)
                 api(libs.lifecycle.viewmodel.compose)
-                api(libs.resources.core)
                 api(libs.resources.compose)
+                api(libs.resources.core)
+                api(libs.settings)
             }
         }
 
@@ -56,6 +57,7 @@ kotlin {
 
 multiplatformResources {
     resourcesPackage.set("info.javaway.planner")
+    iosBaseLocalizationRegion.set("en")
 }
 
 android {
