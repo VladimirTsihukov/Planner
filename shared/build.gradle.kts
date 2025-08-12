@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.android.library)
     alias(libs.plugins.moko.res)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {

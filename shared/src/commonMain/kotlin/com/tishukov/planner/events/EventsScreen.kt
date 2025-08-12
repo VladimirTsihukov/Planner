@@ -1,15 +1,25 @@
 package com.tishukov.planner.events
 
 import androidx.compose.foundation.layout.BoxScope
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import com.tishukov.planner.common.ui.calendar.compose.CalendarColors
+import com.tishukov.planner.common.ui.calendar.compose.DatePickerView
+import com.tishukov.planner.common.ui.theme.AppThemeProvider
+import com.tishukov.planner.di.getKoinInstance
 
 @Composable
 fun BoxScope.EventsScreen() {
-    Text(
-        text = "Events Screen",
-        modifier = Modifier.align(Alignment.Center),
+    DatePickerView(
+        viewModel = getKoinInstance(),
+        colors = CalendarColors.default.copy(
+            colorSurface = AppThemeProvider.colors.surface,
+            colorOnSurface = AppThemeProvider.colors.onSurface,
+            colorAccent = AppThemeProvider.colors.accent,
+        ),
+        firstDayIsMonday = AppThemeProvider.prefs.firstDayIsMonday,
+        labels = emptyList(),
+        selectDayListener = { day ->
+
+        }
     )
 }

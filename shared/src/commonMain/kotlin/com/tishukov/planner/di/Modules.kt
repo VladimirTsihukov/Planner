@@ -1,6 +1,7 @@
 package com.tishukov.planner.di
 
 import com.tishukov.planner.DeviceInfo
+import com.tishukov.planner.common.ui.calendar.DatePickerViewModel
 import com.tishukov.planner.root.RootViewModel
 import com.tishukov.planner.settings.SettingsViewModel
 import com.tishukov.planner.storage.SettingsManager
@@ -24,6 +25,8 @@ object StorageModule {
 
 val presentationModule = module {
     single { RootViewModel(settingsManager = get()) }
+
+    single { DatePickerViewModel() }
 
     viewModel {
         SettingsViewModel(
