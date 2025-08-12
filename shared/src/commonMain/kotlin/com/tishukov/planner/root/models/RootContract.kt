@@ -3,7 +3,7 @@ package com.tishukov.planner.root.models
 import com.tishukov.planner.base.BaseAction
 import com.tishukov.planner.base.BaseEvent
 import com.tishukov.planner.base.BaseViewState
-import com.tishukov.planner.common.ui.AppPrefs
+import com.tishukov.planner.common.ui.theme.AppPrefs
 
 class RootContract {
 

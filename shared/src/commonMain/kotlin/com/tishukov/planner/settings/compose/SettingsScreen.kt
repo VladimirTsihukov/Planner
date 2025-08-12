@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.tishukov.planner.common.ui.AppThemeProvider
+import com.tishukov.planner.common.ui.theme.AppThemeProvider
 import com.tishukov.planner.settings.SettingsContract
 import com.tishukov.planner.settings.SettingsViewModel
 import org.koin.compose.viewmodel.koinViewModel

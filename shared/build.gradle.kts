@@ -29,6 +29,8 @@ kotlin {
                 api(compose.runtime)
                 api(compose.ui)
                 api(compose.material)
+                api(compose.material3)
+                api(compose.materialIconsExtended)
                 api(libs.lifecycle.viewmodel.compose)
 
                 //Resources
@@ -42,6 +44,9 @@ kotlin {
                 api(libs.koin.core)
                 api(libs.koin.compose)
                 api(libs.koin.compose.viewmodel)
+
+                //DateTime
+                implementation(libs.date.time)
             }
         }
 

@@ -1,4 +1,4 @@
-package com.tishukov.planner.common.ui
+package com.tishukov.planner.common.ui.theme
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable

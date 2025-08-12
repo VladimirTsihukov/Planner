@@ -9,9 +9,10 @@ lifecycle-viewmodel-compose = "2.8.4"
 moko-res = "0.25.0"
 settings = "1.2.0"
 koin = "4.0.0"
+kotlinx-datetime = "0.6.1"
 
 [libraries]
-
+date-time = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
 compose-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 compose-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }

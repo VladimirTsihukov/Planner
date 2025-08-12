@@ -8,8 +8,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import com.tishukov.planner.categories.CategoriesScreen
-import com.tishukov.planner.common.ui.AppTheme
-import com.tishukov.planner.common.ui.AppThemeProvider
+import com.tishukov.planner.common.ui.theme.AppTheme
+import com.tishukov.planner.common.ui.theme.AppThemeProvider
 import com.tishukov.planner.events.EventsScreen
 import com.tishukov.planner.root.RootViewModel
 import com.tishukov.planner.root.models.AppTab

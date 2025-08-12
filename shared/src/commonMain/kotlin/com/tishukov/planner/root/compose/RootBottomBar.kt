@@ -18,7 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.unit.dp
-import com.tishukov.planner.common.ui.AppThemeProvider
+import com.tishukov.planner.common.ui.theme.AppThemeProvider
 import com.tishukov.planner.root.models.AppTab
 import com.tishukov.planner.root.models.BottomBarItem
 import dev.icerock.moko.resources.compose.painterResource
