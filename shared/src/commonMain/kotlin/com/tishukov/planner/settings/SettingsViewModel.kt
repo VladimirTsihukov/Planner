@@ -1,6 +1,6 @@
 package com.tishukov.planner.settings
 
-import com.tishukov.planner.DeviceInfo
+import com.tishukov.planner.platform.DeviceInfo
 import com.tishukov.planner.base.BaseViewModel
 import com.tishukov.planner.storage.SettingsManager
 import kotlinx.coroutines.flow.launchIn

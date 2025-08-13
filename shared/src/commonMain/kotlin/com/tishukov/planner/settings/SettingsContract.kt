@@ -1,6 +1,6 @@
 package com.tishukov.planner.settings
 
-import com.tishukov.planner.DeviceInfo
+import com.tishukov.planner.platform.DeviceInfo
 import com.tishukov.planner.base.BaseAction
 import com.tishukov.planner.base.BaseViewState
 

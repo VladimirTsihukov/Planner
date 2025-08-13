@@ -4,5 +4,7 @@
     <string name="events">События</string>
     <string name="categories">Категории</string>
     <string name="settings">Настройки</string>
-
+    <string name="title_category_placeholder">Загаловок категорий</string>
+    <string name="subtitle_category_placeholder">Подзаголовок категорий</string>
+    <string name="save">Сохранить</string>
 </resources>

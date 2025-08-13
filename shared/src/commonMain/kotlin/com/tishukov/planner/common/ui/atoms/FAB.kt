@@ -18,7 +18,7 @@ import com.tishukov.planner.common.ui.theme.AppThemeProvider
 fun BoxScope.FAB(clickListener: () -> Unit) {
     FloatingActionButton(
         onClick = clickListener,
-        modifier = Modifier.padding(16.dp).align(Alignment.BottomEnd),
+        modifier = Modifier.padding(end = 16.dp, bottom = 92.dp).align(Alignment.BottomEnd),
         containerColor = AppThemeProvider.colors.surface
     ){
         Image(

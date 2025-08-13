@@ -22,5 +22,6 @@ fun initKoin(
         platformModule,
         appModule,
         presentationModule,
+        RepositoryModule.repository,
     )
 }
