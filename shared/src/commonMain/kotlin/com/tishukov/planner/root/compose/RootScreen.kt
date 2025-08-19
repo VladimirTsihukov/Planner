@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import com.tishukov.planner.categories.CategoriesScreen
 import com.tishukov.planner.common.ui.theme.AppTheme
 import com.tishukov.planner.common.ui.theme.AppThemeProvider
-import com.tishukov.planner.events.EventsScreen
+import com.tishukov.planner.events.ui.list.EventsScreen
 import com.tishukov.planner.root.RootViewModel
 import com.tishukov.planner.root.models.AppTab
 import com.tishukov.planner.root.models.RootContract
@@ -47,7 +47,7 @@ private fun BoxScope.RootNavigation(
 ) {
     when (selectedTab) {
         AppTab.Categories -> CategoriesScreen(viewModel = koinViewModel())
-        AppTab.Events -> EventsScreen()
+        AppTab.Events -> EventsScreen(viewModel = koinViewModel())
         AppTab.Settings -> SettingsScreen()
     }
 }
