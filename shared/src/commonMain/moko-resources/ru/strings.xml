@@ -7,4 +7,9 @@
     <string name="title_category_placeholder">Загаловок категорий</string>
     <string name="subtitle_category_placeholder">Подзаголовок категорий</string>
     <string name="save">Сохранить</string>
+    <string name="empty_category">Без категории</string>
+    <string name="category">Категория</string>
+    <string name="date">Дата</string>
+    <string name="spend_to">Потратить на..</string>
+    <string name="cost">Стоимость</string>
 </resources>

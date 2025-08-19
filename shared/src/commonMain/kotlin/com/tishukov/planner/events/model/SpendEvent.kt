@@ -1,5 +1,7 @@
 package com.tishukov.planner.events.model
 
+import com.tishukov.planner.categories.models.Category
+import com.tishukov.planner.common.ui.calendar.model.CalendarLabel
 import com.tishukov.planner.extensions.now
 import kotlinx.datetime.Clock
 import kotlinx.datetime.DateTimeUnit
@@ -17,7 +19,6 @@ data class SpendEvent(
     val date: LocalDate,
     val createdAt: LocalDateTime,
     val updatedAt: LocalDateTime,
-    val note: String
 ) {
     companion object {
         fun getEmpty() = SpendEvent(
@@ -28,7 +29,6 @@ data class SpendEvent(
             date = LocalDate.now(),
             createdAt = LocalDateTime.now(),
             updatedAt = LocalDateTime.now(),
-            note = "",
         )
 
         fun getStubs() = List(20) { index ->
@@ -43,3 +43,16 @@ data class SpendEvent(
         }
     }
 }
+
+fun SpendEvent.toUI(category: Category) = SpendEventUI(
+    id = id,
+    category = category,
+    title = title,
+    cost = cost
+)
+
+fun SpendEvent.toCalendarLabel(category: Category) = CalendarLabel(
+    id = id,
+    colorHex = category.colorHex,
+    localDate = date
+)
