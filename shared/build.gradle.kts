@@ -23,7 +23,7 @@ kotlin {
     }
 
     sourceSets {
-        commonMain {
+        val commonMain by getting {
             dependencies {
                 //Compose
                 api(compose.foundation)
@@ -51,12 +51,37 @@ kotlin {
             }
         }
 
+        androidMain {
+            dependsOn(commonMain)
+
+            dependencies {
+                //implementation(libs.sqldelight.android.driver)
+            }
+        }
+
         val desktopMain by getting {
+            dependsOn(commonMain)
             dependencies {
                 //Необходимо чтобы Compose сам подтянул нужные библиотеи для разных платформ
                 api(compose.desktop.currentOs)
                 //необходим чтобы viewModelScope внутри ViewModel корректно работал в Compose Desktop (поддержка Dispatchers.Main).
                 api(libs.kotlinx.coroutines.swing)
+                //Sqldelight
+                //implementation(libs.sqldelight.desktop.driver)
+            }
+        }
+
+        val iosArm64Main by getting
+        val iosX64Main by getting
+        val iosSimulatorArm64Main by getting
+        iosMain {
+            dependsOn(commonMain)
+            iosArm64Main.dependsOn(this)
+            iosX64Main.dependsOn(this)
+            iosSimulatorArm64Main.dependsOn(this)
+
+            dependencies {
+                //implementation(libs.sqldelight.native.driver)
             }
         }
     }
