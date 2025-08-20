@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.moko.res)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.sqldelight)
 }
 
 kotlin {
@@ -23,7 +24,7 @@ kotlin {
     }
 
     sourceSets {
-        commonMain {
+        val commonMain by getting {
             dependencies {
                 //Compose
                 api(compose.foundation)
@@ -48,15 +49,44 @@ kotlin {
 
                 //DateTime
                 implementation(libs.date.time)
+
+                //Sqldelight
+                implementation(libs.sqldelight.runtime)
+                implementation(libs.sqldelight.coroutines.extensions)
+            }
+        }
+
+        androidMain {
+            dependsOn(commonMain)
+
+            dependencies {
+                implementation(libs.sqldelight.android.driver)
             }
         }
 
         val desktopMain by getting {
+            dependsOn(commonMain)
             dependencies {
                 //Необходимо чтобы Compose сам подтянул нужные библиотеи для разных платформ
                 api(compose.desktop.currentOs)
                 //необходим чтобы viewModelScope внутри ViewModel корректно работал в Compose Desktop (поддержка Dispatchers.Main).
                 api(libs.kotlinx.coroutines.swing)
+                //Sqldelight
+                implementation(libs.sqldelight.desktop.driver)
+            }
+        }
+
+        val iosArm64Main by getting
+        val iosX64Main by getting
+        val iosSimulatorArm64Main by getting
+        iosMain {
+            dependsOn(commonMain)
+            iosArm64Main.dependsOn(this)
+            iosX64Main.dependsOn(this)
+            iosSimulatorArm64Main.dependsOn(this)
+
+            dependencies {
+                implementation(libs.sqldelight.native.driver)
             }
         }
     }
@@ -85,5 +115,14 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+    }
+}
+
+sqldelight {
+    databases {
+        create("AppDb") {
+            packageName.set("com.tishukov.planner.db")
+            schemaOutputDirectory.set(file("src/commonMain/sqldelight/db"))
+        }
     }
 }

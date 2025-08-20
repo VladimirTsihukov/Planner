@@ -21,6 +21,7 @@ class CreateEventViewModel : BaseViewModel<CreateEventViewModel.Action, CreateEv
     fun selectDate(date: LocalDate?) = updateState { copy(date = date ?: LocalDate.now()) }
     fun resetState() = updateState { State.NONE }
     fun changeTitle(title: String) = updateState { copy(title = title) }
+    fun changeNote(note: String) = updateState { copy(note = note) }
     fun changeCost(cost: String) = updateState { copy(cost = cost.toDoubleOrNull() ?: this.cost) }
     fun selectCategory(category: Category) = updateState { copy(category = category) }
 
@@ -34,7 +35,8 @@ class CreateEventViewModel : BaseViewModel<CreateEventViewModel.Action, CreateEv
                 date = date,
                 categoryId = category.id,
                 createdAt = now,
-                updatedAt = now
+                updatedAt = now,
+                note = null,
             )
         }
         resetState()
@@ -47,14 +49,16 @@ class CreateEventViewModel : BaseViewModel<CreateEventViewModel.Action, CreateEv
         val title: String,
         val category: Category,
         val date: LocalDate,
-        val cost: Double
+        val cost: Double,
+        val note: String,
     ) : BaseViewState {
         companion object {
             val NONE = State(
                 title = "",
                 category = Category.getEmpty(),
                 date = LocalDate.now(),
-                cost = 0.0
+                cost = 0.0,
+                note = "",
             )
         }
     }

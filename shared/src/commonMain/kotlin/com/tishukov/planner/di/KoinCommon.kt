@@ -18,7 +18,10 @@ fun initKoin(
 ) = startKoin {
     modules(
         CoreModules.deviceInfo,
+        CoreModules.coroutineScope,
         StorageModule.settings,
+        StorageModule.dao,
+        StorageModule.db,
         platformModule,
         appModule,
         presentationModule,
