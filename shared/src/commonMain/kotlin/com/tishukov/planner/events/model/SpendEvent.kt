@@ -3,6 +3,7 @@ package com.tishukov.planner.events.model
 import com.tishukov.planner.categories.models.Category
 import com.tishukov.planner.common.ui.calendar.model.CalendarLabel
 import com.tishukov.planner.extensions.now
+import db.events.EventDb
 import kotlinx.datetime.Clock
 import kotlinx.datetime.DateTimeUnit
 import kotlinx.datetime.LocalDate
@@ -19,6 +20,7 @@ data class SpendEvent(
     val date: LocalDate,
     val createdAt: LocalDateTime,
     val updatedAt: LocalDateTime,
+    val note: String?,
 ) {
     companion object {
         fun getEmpty() = SpendEvent(
@@ -29,18 +31,8 @@ data class SpendEvent(
             date = LocalDate.now(),
             createdAt = LocalDateTime.now(),
             updatedAt = LocalDateTime.now(),
+            note = null,
         )
-
-        fun getStubs() = List(20) { index ->
-            getEmpty().copy(
-                id = index.toString(),
-                title = "Spend Event $index",
-                date = Clock.System.now()
-                    .plus(index, DateTimeUnit.DAY, TimeZone.currentSystemDefault())
-                    .toLocalDateTime(TimeZone.currentSystemDefault())
-                    .date
-            )
-        }
     }
 }
 
@@ -55,4 +47,26 @@ fun SpendEvent.toCalendarLabel(category: Category) = CalendarLabel(
     id = id,
     colorHex = category.colorHex,
     localDate = date
+)
+
+fun EventDb.toEntity() = SpendEvent(
+    id = id,
+    categoryId = categoryId,
+    title = title.orEmpty(),
+    cost = cost ?: 0.0,
+    date = date,
+    createdAt = createdAt,
+    updatedAt = updatedAt,
+    note = note,
+)
+
+fun SpendEvent.toDb() = EventDb(
+    id = id,
+    categoryId = categoryId,
+    title = title,
+    cost = cost,
+    date = date,
+    createdAt = createdAt,
+    updatedAt = updatedAt,
+    note = note,
 )

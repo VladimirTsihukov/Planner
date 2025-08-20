@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.moko.res)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.sqldelight)
 }
 
 kotlin {
@@ -48,6 +49,10 @@ kotlin {
 
                 //DateTime
                 implementation(libs.date.time)
+
+                //Sqldelight
+                implementation(libs.sqldelight.runtime)
+                implementation(libs.sqldelight.coroutines.extensions)
             }
         }
 
@@ -55,7 +60,7 @@ kotlin {
             dependsOn(commonMain)
 
             dependencies {
-                //implementation(libs.sqldelight.android.driver)
+                implementation(libs.sqldelight.android.driver)
             }
         }
 
@@ -67,7 +72,7 @@ kotlin {
                 //необходим чтобы viewModelScope внутри ViewModel корректно работал в Compose Desktop (поддержка Dispatchers.Main).
                 api(libs.kotlinx.coroutines.swing)
                 //Sqldelight
-                //implementation(libs.sqldelight.desktop.driver)
+                implementation(libs.sqldelight.desktop.driver)
             }
         }
 
@@ -81,7 +86,7 @@ kotlin {
             iosSimulatorArm64Main.dependsOn(this)
 
             dependencies {
-                //implementation(libs.sqldelight.native.driver)
+                implementation(libs.sqldelight.native.driver)
             }
         }
     }
@@ -110,5 +115,14 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+    }
+}
+
+sqldelight {
+    databases {
+        create("AppDb") {
+            packageName.set("com.tishukov.planner.db")
+            schemaOutputDirectory.set(file("src/commonMain/sqldelight/db"))
+        }
     }
 }

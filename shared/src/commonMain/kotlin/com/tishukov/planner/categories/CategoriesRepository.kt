@@ -1,13 +1,14 @@
 package com.tishukov.planner.categories
 
+import com.tishukov.planner.categories.data.CategoryDao
 import com.tishukov.planner.categories.models.Category
 import com.tishukov.planner.extensions.appLog
 import kotlinx.coroutines.flow.flow
 
-class CategoriesRepository {
-    fun getAllFlow() = flow { emit(Category.getStubs()) }
+class CategoriesRepository(
+    private val dao: CategoryDao,
+) {
+    fun getAllFlow() = dao.getAllFlow()
 
-    suspend fun create(category: Category){
-        appLog("created category: $category")
-    }
+    suspend fun create(category: Category) = dao.insert(category)
 }

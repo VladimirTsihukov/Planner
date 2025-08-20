@@ -1,12 +1,15 @@
 package com.tishukov.planner.events
 
+import com.tishukov.planner.events.data.SpendEventDao
 import com.tishukov.planner.events.model.SpendEvent
 import com.tishukov.planner.extensions.appLog
 import kotlinx.coroutines.flow.flow
 
-class EventsRepository {
+class EventsRepository(
+    private val dao: SpendEventDao,
+) {
 
-    fun getAllFlow() = flow { emit(SpendEvent.getStubs()) }
+    fun getAllFlow() = dao.getAllFlow()
 
-    fun create(spendEvent: SpendEvent) = appLog("create event $spendEvent")
+    suspend fun create(spendEvent: SpendEvent) = dao.insert(spendEvent)
 }

@@ -1,6 +1,7 @@
 package com.tishukov.planner.categories.models
 
 import com.tishukov.planner.extensions.now
+import db.categories.CategoryDb
 import kotlinx.datetime.LocalDateTime
 
 data class Category(
@@ -23,9 +24,23 @@ data class Category(
                 colorHex = "#F54927"
             )
         }
-
-        fun getStubs() = List(10) { index ->
-            getEmpty().copy(id = index.toString(), title = "category $index")
-        }
     }
 }
+
+fun CategoryDb.toEntity() = Category(
+    id = id,
+    title = title.orEmpty(),
+    description = description.orEmpty(),
+    createAt = createdAt,
+    updateAt = updatedAt,
+    colorHex = colorHex,
+)
+
+fun Category.toDb() = CategoryDb(
+    id = id,
+    title = title,
+    description = description,
+    createdAt = createAt,
+    updatedAt = updateAt,
+    colorHex = colorHex,
+)

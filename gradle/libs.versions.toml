@@ -12,6 +12,7 @@ koin = "4.0.0"
 kotlinx-datetime = "0.6.1"
 kotlinx-serialization = "1.7.3"
 decompose = "3.3.0-alpha02"
+sqldelight = "2.0.1"
 
 [libraries]
 date-time = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
@@ -41,6 +42,12 @@ kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 decompose = { module = "com.arkivanov.decompose:decompose", version.ref = "decompose" }
 decompose-compose = { module = "com.arkivanov.decompose:extensions-compose", version.ref = "decompose" }
 
+sqldelight-runtime = { module = "app.cash.sqldelight:runtime", version.ref = "sqldelight" }
+sqldelight-coroutines-extensions = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqldelight"}
+sqldelight-android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "sqldelight"}
+sqldelight-native-driver = { module = "app.cash.sqldelight:native-driver", version.ref = "sqldelight"}
+sqldelight-desktop-driver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight"}
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
@@ -50,4 +57,5 @@ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "
 multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 moko-res = { id = "dev.icerock.mobile.multiplatform-resources", version.ref = "moko-res" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight"}
 
