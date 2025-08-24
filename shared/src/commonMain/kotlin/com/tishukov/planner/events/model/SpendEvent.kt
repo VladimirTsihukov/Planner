@@ -70,3 +70,25 @@ fun SpendEvent.toDb() = EventDb(
     updatedAt = updatedAt,
     note = note,
 )
+
+fun SpendEvent.toApi() = SpendEventApi(
+    id = id,
+    categoryId = categoryId,
+    title = title,
+    cost = cost,
+    date = date,
+    createdAt = createdAt,
+    updatedAt = updatedAt,
+    note = note
+)
+
+fun SpendEventApi.toEntity() = SpendEvent(
+    id = id.orEmpty(),
+    categoryId = categoryId.orEmpty(),
+    title = title.orEmpty(),
+    cost = cost ?: 0.0,
+    date = date ?: LocalDateTime.now().date,
+    createdAt = createdAt ?: LocalDateTime.now(),
+    updatedAt = updatedAt ?: LocalDateTime.now(),
+    note = note.orEmpty()
+)

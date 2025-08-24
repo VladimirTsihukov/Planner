@@ -53,6 +53,17 @@ kotlin {
                 //Sqldelight
                 implementation(libs.sqldelight.runtime)
                 implementation(libs.sqldelight.coroutines.extensions)
+
+                //Network
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.cio)
+                implementation(libs.ktor.client.logging)
+                implementation(libs.ktor.client.negotiation)
+                implementation(libs.ktor.serialization.kotlinx.json)
+                implementation(libs.kotlinx.serialization.core)
+
+                //Logs
+                api(libs.napier)
             }
         }
 
@@ -61,6 +72,7 @@ kotlin {
 
             dependencies {
                 implementation(libs.sqldelight.android.driver)
+                implementation(libs.ktor.client.android)
             }
         }
 
@@ -87,6 +99,7 @@ kotlin {
 
             dependencies {
                 implementation(libs.sqldelight.native.driver)
+                implementation(libs.ktor.client.ios)
             }
         }
     }

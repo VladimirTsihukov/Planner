@@ -44,3 +44,21 @@ fun Category.toDb() = CategoryDb(
     updatedAt = updateAt,
     colorHex = colorHex,
 )
+
+fun Category.toApi() = CategoryApi(
+    id = id,
+    title = title,
+    description = description,
+    createdAt = createAt,
+    updatedAt = updateAt,
+    colorHex = colorHex,
+)
+
+fun CategoryApi.toEntity() = Category(
+    id = id.orEmpty(),
+    title = title.orEmpty(),
+    description = description.orEmpty(),
+    createAt = createdAt ?: LocalDateTime.now(),
+    updateAt = updatedAt ?: LocalDateTime.now(),
+    colorHex = colorHex.orEmpty(),
+)

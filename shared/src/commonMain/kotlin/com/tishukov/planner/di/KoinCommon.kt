@@ -26,5 +26,8 @@ fun initKoin(
         appModule,
         presentationModule,
         RepositoryModule.repository,
+        NetworkModule.json,
+        NetworkModule.httpClient,
+        NetworkModule.api,
     )
 }
