@@ -10,5 +10,9 @@ class CategoriesRepository(
 ) {
     fun getAllFlow() = dao.getAllFlow()
 
+    suspend fun getAll() = dao.getAll()
+
+    suspend fun insertAll(categories: List<Category>) = dao.insertAll(categories)
+
     suspend fun create(category: Category) = dao.insert(category)
 }
